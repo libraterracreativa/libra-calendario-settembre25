@@ -1,1 +1,949 @@
-# libra-calendario-settembre25
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libra - Eventi Settembre 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #EAE4CE;
+            color: #4B5031;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Floating Particles */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(154, 110, 14, 0.3);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: -5s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: -2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: -8s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: -1s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: -6s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: -3s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: -7s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: -4s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: -9s; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, 
+                        rgba(254, 254, 254, 0.92) 0%, 
+                        rgba(250, 249, 246, 0.88) 100%);
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 40px rgba(75, 80, 49, 0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #EAE4CE 0%, #D3BA8F 100%);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%239A6E0E" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="%23BB823A" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="%23B98B0D" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .logo-art {
+            width: 80px;
+            height: 80px;
+            opacity: 0.8;
+        }
+
+        .logo-text-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-main {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 300;
+            color: #9A6E0E;
+            letter-spacing: -0.03em;
+            position: relative;
+        }
+
+        .logo-tagline {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #4B5031;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        .logo-brand {
+            width: 100px;
+            height: auto;
+            opacity: 0.8;
+        }
+
+        .header-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #4B5031;
+            opacity: 0.8;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            color: #9A6E0E;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #9A6E0E, #BB823A);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #4B5031;
+            opacity: 0.7;
+        }
+
+        /* Event Cards */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .event-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(75, 80, 49, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(154, 110, 14, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(75, 80, 49, 0.1);
+        }
+
+        .event-card:hover::before {
+            left: 100%;
+        }
+
+        .recurring-event {
+            border-left: 4px solid #959D6B;
+            background: linear-gradient(135deg, rgba(149, 157, 107, 0.05) 0%, white 100%);
+        }
+
+        .special-event {
+            border-left: 4px solid #BB823A;
+            background: linear-gradient(135deg, rgba(187, 130, 58, 0.05) 0%, white 100%);
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .event-date {
+            background: linear-gradient(135deg, #9A6E0E 0%, #BB823A 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(154, 110, 14, 0.3);
+        }
+
+        .event-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .event-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #9A6E0E;
+            margin-bottom: 8px;
+        }
+
+        .event-instructor {
+            color: #4B5031;
+            font-style: italic;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .meta-badge {
+            background: rgba(149, 157, 107, 0.1);
+            color: #4B5031;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(149, 157, 107, 0.2);
+        }
+
+        .event-description {
+            color: #4B5031;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .event-price {
+            font-size: 20px;
+            font-weight: 600;
+            color: #9A6E0E;
+            margin-bottom: 20px;
+        }
+
+        .book-button {
+            background: linear-gradient(135deg, #9A6E0E 0%, #BB823A 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(154, 110, 14, 0.2);
+        }
+
+        .book-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(154, 110, 14, 0.3);
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            background: rgba(234, 228, 206, 0.3);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .calendar-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #9A6E0E;
+            margin-bottom: 30px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .calendar-header {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4B5031;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .calendar-day {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .calendar-day.has-event {
+            background: linear-gradient(135deg, #9A6E0E 0%, #BB823A 100%);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(154, 110, 14, 0.3);
+        }
+
+        .calendar-day.has-recurring {
+            background: linear-gradient(135deg, #959D6B 0%, #6F763B 100%);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(149, 157, 107, 0.3);
+        }
+
+        .calendar-day.other-month {
+            opacity: 0.3;
+        }
+
+        .calendar-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.event {
+            background: linear-gradient(135deg, #9A6E0E 0%, #BB823A 100%);
+        }
+
+        .legend-dot.recurring {
+            background: linear-gradient(135deg, #959D6B 0%, #6F763B 100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .logo-art, .logo-brand {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-card {
+                padding: 30px 20px;
+            }
+            
+            .event-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .event-info {
+                margin-left: 0;
+            }
+            
+            .calendar-grid {
+                gap: 4px;
+            }
+            
+            .calendar-day {
+                width: 35px;
+                height: 35px;
+                font-size: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .particle {
+                animation: none;
+            }
+            
+            .event-card::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-art">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 30C20 25 25 15 35 20C40 15 45 25 50 30C55 25 60 35 65 40C70 35 75 45 80 50C75 55 70 65 65 60C60 65 55 55 50 50C45 55 40 45 35 40C30 45 25 35 20 30Z" fill="#9A6E0E" opacity="0.8"/>
+                        <circle cx="50" cy="45" r="15" fill="none" stroke="#4B5031" stroke-width="1" opacity="0.6"/>
+                        <path d="M40 40C42 42 45 45 50 45C55 45 58 42 60 40" stroke="#4B5031" stroke-width="1.5" fill="none"/>
+                        <circle cx="45" cy="42" r="1" fill="#4B5031"/>
+                        <circle cx="55" cy="42" r="1" fill="#4B5031"/>
+                        <path d="M25 25L30 20M75 25L70 20M35 70L40 75M65 70L60 75" stroke="#9A6E0E" stroke-width="1" opacity="0.4"/>
+                    </svg>
+                </div>
+                <div class="logo-text-container">
+                    <div class="logo-main">Libra</div>
+                    <div class="logo-tagline">terra creativa</div>
+                </div>
+                <div class="logo-brand">
+                    <svg viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="50" y="20" text-anchor="middle" font-family="serif" font-size="20" font-weight="400" fill="#9A6E0E">Libra</text>
+                        <circle cx="35" cy="8" r="2" fill="#BB823A" opacity="0.6"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="header-subtitle">Eventi Settembre 2025</div>
+        </header>
+
+        <!-- Eventi Settimanali -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Eventi Settimanali</h2>
+                <p class="section-subtitle">Appuntamenti fissi ogni settimana</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card recurring-event">
+                    <div class="event-header">
+                        <div class="event-date">Lun-Sab</div>
+                        <div class="event-info">
+                            <h3 class="event-title">✨ Esercizio Terapeutico Personalizzato</h3>
+                            <div class="event-instructor">con Simone</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Su appuntamento</span>
+                        <span class="meta-badge">50€/h individuale</span>
+                        <span class="meta-badge">25€/h in coppia</span>
+                    </div>
+                    <div class="event-description">
+                        Un percorso di movimento personalizzato che va oltre il semplice allenamento. Attraverso un approccio chinesiologico, ogni sessione è studiata per riequilibrare, riabilitare quando necessario e potenziare nelle fasi avanzate. Un'ora dedicata alla cura del tuo corpo attraverso il movimento consapevole.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Esercizio Terapeutico Personalizzato con Simone" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card recurring-event">
+                    <div class="event-header">
+                        <div class="event-date">Lun</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🏺 Corso di Ceramica</h3>
+                            <div class="event-instructor">con Linda Bianchi</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Ogni lunedì 18:30-21:00</span>
+                        <span class="meta-badge">40€</span>
+                    </div>
+                    <div class="event-description">
+                        Un viaggio creativo dove le tue mani incontrano l'argilla in un dialogo silenzioso e profondo. Linda Bianchi ti accompagnerà nella scoperta di questa antica arte, trasformando la materia grezza in espressioni uniche della tua creatività. Ogni settimana una nuova opportunità di dare forma ai tuoi pensieri e liberare l'artista che vive in te.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Corso di Ceramica del lunedì con Linda" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card recurring-event">
+                    <div class="event-header">
+                        <div class="event-date">Mer</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🤸‍♀️ Pilates</h3>
+                            <div class="event-instructor">con Francesca Parrini</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">8:30 - 10:00 - 13:00</span>
+                        <span class="meta-badge">15€</span>
+                    </div>
+                    <div class="event-description">
+                        Il Pilates è molto più di un semplice allenamento: è una filosofia di movimento che unisce forza, flessibilità e controllo mentale. Con Francesca Parrini riscoprirai il tuo centro, migliorerai la postura e svilupperai una consapevolezza corporea che trasformerà il tuo modo di muoverti nella vita quotidiana. Tre orari per adattarsi ai tuoi ritmi.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Pilates del mercoledì con Francesca" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card recurring-event">
+                    <div class="event-header">
+                        <div class="event-date">Mer</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🧘 Yin Yoga</h3>
+                            <div class="event-instructor">con Naty</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Ogni mercoledì 19:00-20:00</span>
+                        <span class="meta-badge">20€</span>
+                    </div>
+                    <div class="event-description">
+                        Appuntamento fisso settimanale per rilassarti profondamente con la pratica dello Yin Yoga. Lascia andare le tensioni e trova il tuo equilibrio interiore in questo spazio di quiete e ascolto.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Yin Yoga del mercoledì con Naty" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eventi del Mese -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Eventi di Settembre</h2>
+                <p class="section-subtitle">Appuntamenti speciali del mese</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card special-event">
+                    <div class="event-header">
+                        <div class="event-date">3<br>Mar</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🍄 Il Regno dei Funghi</h3>
+                            <div class="event-instructor">con Vanessa Parducci</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">18:00 - 19:30</span>
+                        <span class="meta-badge">30€</span>
+                    </div>
+                    <div class="event-description">
+                        Scopri il ruolo dei micoterapici a sostegno del benessere in un viaggio affascinante nel mondo dei funghi medicinali. Vanessa Parducci ti guiderà attraverso le proprietà curative di questi straordinari organismi, con degustazione di caffè micoterapici inclusa per sperimentare direttamente i benefici.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Il Regno dei Funghi del 3 settembre" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">6<br>Ven</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🌬️ Respira con Me - Mattina</h3>
+                            <div class="event-instructor">con Lisa Zini</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">10:00 - 11:30</span>
+                        <span class="meta-badge">15€ + aperitivo facoltativo 15€</span>
+                    </div>
+                    <div class="event-description">
+                        Integra il respiro consapevole nelle tue pratiche di benessere quotidiano. Lisa Zini ti insegnerà tecniche semplici ma potenti, a portata di naso, per trasformare il respiro nel tuo alleato per la calma e l'energia. Un approccio pratico e accessibile a tutti.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Respira con Me del 6 settembre mattina" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">11<br>Mer</div>
+                        <div class="event-info">
+                            <h3 class="event-title">💃 Danza Orientale Evolutiva</h3>
+                            <div class="event-instructor">con Lia Miro</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">18:00 - 20:00</span>
+                        <span class="meta-badge">20€</span>
+                    </div>
+                    <div class="event-description">
+                        Un seminario di consapevolezza femminile che va oltre la danza. Attraverso movimenti ancestrali e musica evocativa, Lia Miro ti accompagnerà in un viaggio di riconnessione con la tua essenza femminile più autentica. Riscopri la grazia naturale che vive in te e libera l'energia vitale attraverso il movimento consapevole del corpo.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Danza Orientale Evolutiva dell'11 settembre" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card special-event">
+                    <div class="event-header">
+                        <div class="event-date">19-21<br>Gio-Sab</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🍂 Autumn Flow Retreat</h3>
+                            <div class="event-instructor">con Vanessa Parducci</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">3 giorni</span>
+                        <span class="meta-badge">Ritiro completo</span>
+                    </div>
+                    <div class="event-description">
+                        Un'opportunità unica per riconnetterti con te stesso e la tua armonia interiore nel passaggio verso l'autunno. Vanessa Parducci ti guiderà attraverso naturopatia, iridologia e medicina cinese, utilizzando la connessione profonda con la natura. Tre giorni di trasformazione nella cornice naturale di Libra per apprendere competenze utili al tuo benessere.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei info sull'Autumn Flow Retreat 19-21 settembre" class="book-button">
+                        📱 Info e Prenotazioni
+                    </a>
+                </div>
+
+                <div class="event-card special-event">
+                    <div class="event-header">
+                        <div class="event-date">20<br>Sab</div>
+                        <div class="event-info">
+                            <h3 class="event-title">❄️ Wim Hof Method - Workshop Fondamenti</h3>
+                            <div class="event-instructor">con Andrea Bianchi (Istruttore WHM Certificato)</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">9:30 - 15:30</span>
+                        <span class="meta-badge">99€</span>
+                        <span class="meta-badge">Max 30 partecipanti</span>
+                    </div>
+                    <div class="event-description">
+                        Scopri il potere nascosto che vive dentro di te attraverso i 3 pilastri del Metodo Wim Hof: respirazione, esposizione al freddo e forza mentale. Andrea Bianchi, odontoiatra e istruttore WHM certificato, ti guiderà in un viaggio straordinario dove imparerai a controllare volontariamente il tuo sistema nervoso autonomo. Dalla teoria alla pratica: sessioni di respirazione profonda, yoga preparatorio e l'esperienza del bagno ghiacciato (facoltativo). Brunch vegano incluso.
+                    </div>
+                    <div class="event-price">99€</div>
+                    <a href="https://www.wimhofmethod.com/activities/fundamentals-workshop-pietrasanta-andrea-bianchi/68148" class="book-button">
+                        🌐 Prenota Ufficiale WHM
+                    </a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">24<br>Mar</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🔥 Trance Dance</h3>
+                            <div class="event-instructor">con Beatrice Reieri</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">19:30 - 22:00</span>
+                        <span class="meta-badge">20€</span>
+                    </div>
+                    <div class="event-description">
+                        Un rituale sciamanico per contribuire al fluire dell'energia interiore attraverso il movimento libero, la musica ritmica e la respirazione profonda. Beatrice Reieri ti accompagnerà in un viaggio di liberazione dove il corpo diventa il mezzo per accedere a stati di coscienza espansi e rilasciare blocchi energetici.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Trance Dance del 24 settembre" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">25<br>Mer</div>
+                        <div class="event-info">
+                            <h3 class="event-title">💃 Danza Orientale Evolutiva</h3>
+                            <div class="event-instructor">con Lia Miro</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">18:00 - 20:00</span>
+                        <span class="meta-badge">20€</span>
+                    </div>
+                    <div class="event-description">
+                        Secondo appuntamento del mese con Lia Miro per continuare l'esplorazione della femminilità attraverso la danza. Un seminario di consapevolezza che unisce movimenti ancestrali e crescita personale, dove ogni gesto diventa un atto di riconnessione con la tua natura più autentica.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Danza Orientale Evolutiva del 25 settembre" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">26<br>Gio</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🌬️ Corso di Respirazione</h3>
+                            <div class="event-instructor">con Andrea Bianchi</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Orario da definire</span>
+                        <span class="meta-badge">Prezzo da definire</span>
+                    </div>
+                    <div class="event-description">
+                        Un workshop intensivo dedicato esclusivamente alle tecniche di respirazione del Metodo Wim Hof. Andrea Bianchi ti guiderà attraverso esercizi specifici per imparare a padroneggiare il respiro come strumento di trasformazione. Scopri come questa pratica millenaria può diventare il tuo alleato per gestire stress, ansia e per accedere a stati di benessere profondo.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei info sul Corso di Respirazione del 26 settembre" class="book-button">
+                        📱 Info e Prenotazioni
+                    </a>
+                </div>
+
+                <div class="event-card special-event">
+                    <div class="event-header">
+                        <div class="event-date">28<br>Sab</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🌳 Restituzione Albero Genealogico</h3>
+                            <div class="event-instructor">con Giuseppina Tazzioli (Psicoterapeuta)</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">10:00 - 17:00</span>
+                        <span class="meta-badge">Lavoro di gruppo</span>
+                    </div>
+                    <div class="event-description">
+                        Un viaggio profondo nelle radici della tua storia familiare attraverso l'analisi dell'albero genealogico. La psicoterapeuta Giuseppina Tazzioli ti accompagnerà nella comprensione di come i pattern, i traumi e i doni dei tuoi antenati influenzano la tua vita presente. Attraverso questo strumento psicoterapeutico potrai identificare dinamiche inconsce, liberarti da pesi ereditati e riappropriarti della tua storia per scrivere un futuro più consapevole. Include incontro preliminare per la raccolta dati (2 ore) e restituzione di gruppo.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei info sulla Restituzione Albero Genealogico del 28 settembre" class="book-button">
+                        📱 Info e Prenotazioni
+                    </a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">28<br>Sab</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🔮 Cerchio di Tarocchi - Entrare nell'Autunno</h3>
+                            <div class="event-instructor">con Fra Sonica</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">20:00 - 22:00</span>
+                        <span class="meta-badge">35€</span>
+                    </div>
+                    <div class="event-description">
+                        Un cerchio sacro con i Tarocchi di Marsiglia per attraversare consapevolmente la soglia dell'autunno. Fra Sonica ti guiderà nell'esplorazione del momento presente, aiutandoti a comprendere cosa lasciare andare e cosa accogliere in questa fase di transizione. Il periodo delle eclissi ci ha portato verso conclusioni karmiche importanti: scopri insieme agli altri partecipanti le risposte che cerchi attraverso la saggezza antica dei tarocchi.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Cerchio di Tarocchi del 28 settembre" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+
+                <div class="event-card special-event">
+                    <div class="event-header">
+                        <div class="event-date">30<br>Lun</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🍽️ Cena Raccontata</h3>
+                            <div class="event-instructor">con Franci e Chiara di Cibo Supersonico</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">20:00 - 23:00</span>
+                        <span class="meta-badge">95€</span>
+                    </div>
+                    <div class="event-description">
+                        Un'esperienza gastronomica unica dove creatività culinaria e natura si intrecciano in un racconto da gustare. Cibo Supersonico porta in tavola un viaggio sensoriale attraverso ingredienti vegetali d'eccellenza e storie di luoghi lontani. Supperclub in tavolata condivisa nella natura di Libra, con menu di 4 portate che sorprende, emoziona e racconta attraverso sapori sostenibili e creativi. Drink inclusi per un'esperienza completa.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare la Cena Raccontata del 30 settembre" class="book-button">
+                        📱 Prenota ora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <div class="calendar-section">
+            <h3 class="calendar-title">Settembre 2025</h3>
+            <div class="calendar-grid">
+                <div class="calendar-header">Lun</div>
+                <div class="calendar-header">Mar</div>
+                <div class="calendar-header">Mer</div>
+                <div class="calendar-header">Gio</div>
+                <div class="calendar-header">Ven</div>
+                <div class="calendar-header">Sab</div>
+                <div class="calendar-header">Dom</div>
+                
+                <div class="calendar-day has-recurring">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day has-event">3</div>
+                <div class="calendar-day has-recurring">4</div>
+                <div class="calendar-day">5</div>
+                <div class="calendar-day has-event">6</div>
+                <div class="calendar-day">7</div>
+                
+                <div class="calendar-day has-recurring">8</div>
+                <div class="calendar-day">9</div>
+                <div class="calendar-day has-recurring">10</div>
+                <div class="calendar-day has-event">11</div>
+                <div class="calendar-day">12</div>
+                <div class="calendar-day">13</div>
+                <div class="calendar-day">14</div>
+                
+                <div class="calendar-day has-recurring">15</div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day has-recurring">17</div>
+                <div class="calendar-day has-event">18</div>
+                <div class="calendar-day has-event">19</div>
+                <div class="calendar-day has-event">20</div>
+                <div class="calendar-day has-event">21</div>
+                
+                <div class="calendar-day has-recurring">22</div>
+                <div class="calendar-day">23</div>
+                <div class="calendar-day has-recurring">24</div>
+                <div class="calendar-day has-event">25</div>
+                <div class="calendar-day has-event">26</div>
+                <div class="calendar-day">27</div>
+                <div class="calendar-day has-event">28</div>
+                
+                <div class="calendar-day has-recurring">29</div>
+                <div class="calendar-day has-event">30</div>
+                <div class="calendar-day other-month">1</div>
+                <div class="calendar-day other-month">2</div>
+                <div class="calendar-day other-month">3</div>
+                <div class="calendar-day other-month">4</div>
+                <div class="calendar-day other-month">5</div>
+            </div>
+            
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <div class="legend-dot recurring"></div>
+                    <span>Eventi Settimanali</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot event"></div>
+                    <span>Eventi Speciali</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Note Bar -->
+        <div class="section">
+            <div class="event-card" style="text-align: center; background: linear-gradient(135deg, rgba(149, 157, 107, 0.1) 0%, rgba(154, 110, 14, 0.1) 100%);">
+                <h3 class="event-title">🍹 Servizio Bar</h3>
+                <div class="event-description">
+                    Il nostro bar è aperto dalle 18:00 alle 23:30 per accompagnare le vostre serate con bevande naturali e snack vegetali.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth animations on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Animate cards on scroll
+            document.querySelectorAll('.event-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
