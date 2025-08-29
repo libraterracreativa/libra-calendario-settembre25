@@ -25,11 +25,221 @@
             top: 0;
             left: 0;
             right: 0;
+            background: rgba(234, 228, 206, 0);
+            backdrop-filter: blur(0);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
             background: rgba(234, 228, 206, 0.95);
             backdrop-filter: blur(20px);
-            z-index: 1000;
             padding: 15px 0;
             border-bottom: 1px solid rgba(75, 80, 49, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #EAE4CE 0%, #D3BA8F 100%);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%239A6E0E" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="%23BB823A" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="%23B98B0D" opacity="0.1"/></svg>');
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            33% { transform: translateY(-20px) translateX(10px); }
+            66% { transform: translateY(10px) translateX(-10px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            max-width: 900px;
+            padding: 0 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo {
+            font-size: clamp(4rem, 10vw, 7rem);
+            font-weight: 300;
+            color: #9A6E0E;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #4B5031;
+            opacity: 0.8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .hero-text {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.8;
+            color: #4B5031;
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-text em {
+            font-style: normal;
+            color: #9A6E0E;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #9A6E0E 0%, #BB823A 100%);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(154, 110, 14, 0.3);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(154, 110, 14, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #9A6E0E;
+            border: 2px solid #9A6E0E;
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: #9A6E0E;
+            color: white;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            padding: 100px 30px;
+            background: white;
+            position: relative;
+        }
+
+        .welcome-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .welcome-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: #9A6E0E;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .welcome-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #4B5031;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .welcome-text strong {
+            color: #9A6E0E;
+            font-weight: 500;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            color: #9A6E0E;
+            font-size: 1.2rem;
+            margin-top: 40px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(234, 228, 206, 0);
+            backdrop-filter: blur(0);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(234, 228, 206, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(75, 80, 49, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -409,6 +619,11 @@
             background: linear-gradient(135deg, rgba(187, 130, 58, 0.05) 0%, white 100%);
         }
 
+        .experience-card {
+            border-left: 4px solid #9A6E0E;
+            background: linear-gradient(135deg, rgba(154, 110, 14, 0.08) 0%, white 100%);
+        }
+
         .event-header {
             display: flex;
             justify-content: space-between;
@@ -650,6 +865,41 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(75, 80, 49, 0.1);
         }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(75, 80, 49, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(75, 80, 49, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #9A6E0E;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -661,6 +911,24 @@
             
             .nav-container {
                 padding: 0 20px;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .welcome-section {
+                padding: 60px 20px;
             }
             
             .header {
@@ -707,6 +975,10 @@
                 height: 35px;
                 font-size: 12px;
             }
+
+            .map-info {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -733,7 +1005,233 @@
         /* Section spacing */
         #settimanali { scroll-margin-top: 80px; }
         #mensili { scroll-margin-top: 80px; }
-        #mappa { scroll-margin-top: 80px; }
+        #experience { scroll-margin-top: 80px; }
+        /* Booking Form */
+        .booking-section {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        .booking-toggle {
+            background: linear-gradient(135deg, #9A6E0E 0%, #BB823A 100%);
+            color: white;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(154, 110, 14, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-booking 3s infinite;
+        }
+
+        .booking-toggle:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(154, 110, 14, 0.6);
+        }
+
+        @keyframes pulse-booking {
+            0%, 100% { 
+                box-shadow: 0 8px 30px rgba(154, 110, 14, 0.4);
+                transform: scale(1); 
+            }
+            50% { 
+                box-shadow: 0 12px 40px rgba(154, 110, 14, 0.6);
+                transform: scale(1.02); 
+            }
+        }
+
+        .booking-form-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .booking-form-container.active {
+            display: flex;
+        }
+
+        .booking-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h3 {
+            font-size: 2rem;
+            color: #9A6E0E;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4B5031;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(75, 80, 49, 0.3);
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #9A6E0E;
+            box-shadow: 0 0 0 3px rgba(154, 110, 14, 0.1);
+        }
+
+        .events-selection {
+            margin-bottom: 25px;
+        }
+
+        .events-selection h4 {
+            color: #4B5031;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .event-checkbox {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(234, 228, 206, 0.2);
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .event-checkbox:hover {
+            background: rgba(234, 228, 206, 0.3);
+        }
+
+        .event-checkbox input[type="checkbox"] {
+            margin-right: 12px;
+            margin-top: 3px;
+            transform: scale(1.2);
+            accent-color: #9A6E0E;
+        }
+
+        .event-info-small {
+            flex: 1;
+        }
+
+        .event-info-small .event-title-small {
+            font-weight: 600;
+            color: #4B5031;
+            margin-bottom: 5px;
+        }
+
+        .event-info-small .event-meta-small {
+            font-size: 12px;
+            color: #4B5031;
+            opacity: 0.7;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .form-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-btn.primary {
+            background: linear-gradient(135deg, #9A6E0E 0%, #BB823A 100%);
+            color: white;
+        }
+
+        .form-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(154, 110, 14, 0.3);
+        }
+
+        .form-btn.secondary {
+            background: #f5f5f5;
+            color: #4B5031;
+            border: 1px solid rgba(75, 80, 49, 0.3);
+        }
+
+        .form-btn.secondary:hover {
+            background: #e5e5e5;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #4B5031;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-form:hover {
+            opacity: 1;
+        }
+
+        .form-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .form-message.success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+
+        .form-message.error {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
 
         function searchEvents(searchTerm) {
             const events = document.querySelectorAll('.event-card');
@@ -774,16 +1272,19 @@
 
     <div class="container">
         <!-- Navigation -->
-        <nav class="nav">
+        <nav class="nav" id="mainNav">
             <div class="nav-container">
                 <div class="logo">
                     Libra <span class="divider">|</span> <span class="tagline">terra creativa</span>
                 </div>
                 <div class="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#welcome" class="nav-link">Chi Siamo</a>
                     <a href="#settimanali" class="nav-link">Eventi Settimanali</a>
                     <a href="#mensili" class="nav-link">Eventi Mensili</a>
-                    <a href="#calendario" class="nav-link">Calendario</a>
-                    <a href="#mappa" class="nav-link">Mappa</a>
+                    <a href="#experience" class="nav-link">Libra Experience</a>
+                    <a href="#servizi-privati" class="nav-link">Servizi Privati</a>
+                    <a href="#mappa" class="nav-link">Contatti</a>
                 </div>
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             </div>
@@ -791,11 +1292,62 @@
 
         <!-- Mobile Menu -->
         <div class="mobile-nav" id="mobileNav">
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="#welcome" onclick="closeMobileMenu()">Chi Siamo</a>
             <a href="#settimanali" onclick="closeMobileMenu()">Eventi Settimanali</a>
             <a href="#mensili" onclick="closeMobileMenu()">Eventi Mensili</a>
-            <a href="#mappa" onclick="closeMobileMenu()">Mappa</a>
+            <a href="#experience" onclick="closeMobileMenu()">Libra Experience</a>
+            <a href="#servizi-privati" onclick="closeMobileMenu()">Servizi Privati</a>
+            <a href="#mappa" onclick="closeMobileMenu()">Contatti</a>
         </div>
-        <!-- Simple Header -->
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-content">
+                <h1 class="hero-logo">Libra</h1>
+                <p class="hero-subtitle">Terra Creativa</p>
+                <p class="hero-text">
+                    In un mondo che corre senza sosta, abbiamo creato uno spazio dove <em>il tempo rallenta il suo passo</em>.<br><br>
+                    Un'oasi di equilibrio e connessione dove corpo, mente e spirito ritrovano la loro <em>naturale armonia</em>.
+                </p>
+                <div class="hero-cta">
+                    <a href="#mensili" class="cta-button">Scopri gli Eventi</a>
+                    <a href="#experience" class="cta-button secondary">Le Nostre Experience</a>
+                </div>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToSection('welcome')">
+                <svg viewBox="0 0 24 24" width="30" height="30">
+                    <polyline points="6 9 12 15 18 9" stroke="#9A6E0E" stroke-width="2" fill="none"></polyline>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section" id="welcome">
+            <div class="welcome-container">
+                <h2 class="welcome-title">Welcome</h2>
+                <p class="welcome-text">
+                    <strong>Libra Terra Creativa</strong> nasce come un'oasi di equilibrio e connessione – un luogo dove corpo, mente e spirito ritrovano la loro naturale armonia.
+                </p>
+                <p class="welcome-text">
+                    Crediamo che la vera bellezza risieda nelle connessioni: con se stessi, con gli altri, con la natura che ci circonda. Ogni nostra proposta è un invito a riscoprire questa rete invisibile che unisce tutto ciò che esiste.
+                </p>
+                <p class="welcome-text">
+                    La pratica dello yoga, il movimento consapevole, l'espressione creativa e il nutrimento consapevole sono i sentieri che abbiamo scelto per accompagnarti in questo viaggio di riscoperta.
+                </p>
+                <p class="welcome-text">
+                    Non insegniamo tecniche, ma condividiamo un modo di essere – <strong>presente, autentico, in ascolto</strong>.
+                </p>
+                <p class="welcome-text">
+                    A Pietrasanta, dove l'arte e la bellezza permeano ogni angolo, abbiamo trovato il terreno fertile per coltivare questa visione. Qui, tra le montagne e il mare, ti invitiamo a rallentare, respirare e riscoprire la tua essenza più vera.
+                </p>
+                <p class="signature">
+                    Simone e Silvia
+                </p>
+            </div>
+        </section>
+
+        <!-- Simple Header for Events -->
         <div class="simple-header">
             <h1>Eventi Settembre 2025</h1>
         </div>
@@ -829,8 +1381,8 @@
                     <div class="event-description">
                         Un percorso di movimento personalizzato che va oltre il semplice allenamento. Attraverso un approccio chinesiologico, ogni sessione è studiata per riequilibrare, riabilitare quando necessario e potenziare nelle fasi avanzate. Un'ora dedicata alla cura del tuo corpo attraverso il movimento consapevole.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Esercizio Terapeutico Personalizzato con Simone" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sull'Esercizio Terapeutico Personalizzato con Simone" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
@@ -849,8 +1401,8 @@
                     <div class="event-description">
                         Un viaggio creativo dove le tue mani incontrano l'argilla in un dialogo silenzioso e profondo. Linda Bianchi ti accompagnerà nella scoperta di questa antica arte, trasformando la materia grezza in espressioni uniche della tua creatività. Ogni settimana una nuova opportunità di dare forma ai tuoi pensieri e liberare l'artista che vive in te.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Corso di Ceramica del lunedì con Linda" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sul Corso di Ceramica del lunedì con Linda" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
@@ -869,8 +1421,8 @@
                     <div class="event-description">
                         Il Pilates è molto più di un semplice allenamento: è una filosofia di movimento che unisce forza, flessibilità e controllo mentale. Con Francesca Parrini riscoprirai il tuo centro, migliorerai la postura e svilupperai una consapevolezza corporea che trasformerà il tuo modo di muoverti nella vita quotidiana. Tre orari per adattarsi ai tuoi ritmi.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Pilates del mercoledì con Francesca" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sul Pilates del mercoledì con Francesca" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
@@ -889,8 +1441,8 @@
                     <div class="event-description">
                         Appuntamento fisso settimanale per rilassarti profondamente con la pratica dello Yin Yoga. Lascia andare le tensioni e trova il tuo equilibrio interiore in questo spazio di quiete e ascolto.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Yin Yoga del mercoledì con Naty" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sullo Yin Yoga del mercoledì con Naty" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
             </div>
@@ -906,7 +1458,7 @@
             <div class="events-grid">
                 <div class="event-card special-event">
                     <div class="event-header">
-                        <div class="event-date">3<br>Mar</div>
+                        <div class="event-date">3<br>Mer</div>
                         <div class="event-info">
                             <h3 class="event-title">🍄 Il Regno dei Funghi</h3>
                             <div class="event-instructor">con Vanessa Parducci</div>
@@ -919,14 +1471,14 @@
                     <div class="event-description">
                         Scopri il ruolo dei micoterapici a sostegno del benessere in un viaggio affascinante nel mondo dei funghi medicinali. Vanessa Parducci ti guiderà attraverso le proprietà curative di questi straordinari organismi, con degustazione di caffè micoterapici inclusa per sperimentare direttamente i benefici.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Il Regno dei Funghi del 3 settembre" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni su Il Regno dei Funghi del 3 settembre" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
                 <div class="event-card">
                     <div class="event-header">
-                        <div class="event-date">6<br>Ven</div>
+                        <div class="event-date">6<br>Sab</div>
                         <div class="event-info">
                             <h3 class="event-title">🌬️ Respira con Me - Mattina</h3>
                             <div class="event-instructor">con Lisa Zini</div>
@@ -940,28 +1492,28 @@
                     <div class="event-description">
                         Integra il respiro consapevole nelle tue pratiche di benessere quotidiano. Lisa Zini ti insegnerà tecniche semplici ma potenti, a portata di naso, per trasformare il respiro nel tuo alleato per la calma e l'energia. Un approccio pratico e accessibile a tutti.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Respira con Me del 6 settembre mattina" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni su Respira con Me del 6 settembre mattina" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
                 <div class="event-card">
                     <div class="event-header">
-                        <div class="event-date">11<br>Mer</div>
+                        <div class="event-date">11<br>Gio</div>
                         <div class="event-info">
                             <h3 class="event-title">💃 Danza Orientale Evolutiva</h3>
                             <div class="event-instructor">con Lia Miro</div>
                         </div>
                     </div>
                     <div class="event-meta">
-                        <span class="meta-badge">18:00 - 20:00</span>
+                        <span class="meta-badge">18:30 - 20:00</span>
                         <span class="meta-badge">20€</span>
                     </div>
                     <div class="event-description">
                         Un seminario di consapevolezza femminile che va oltre la danza. Attraverso movimenti ancestrali e musica evocativa, Lia Miro ti accompagnerà in un viaggio di riconnessione con la tua essenza femminile più autentica. Riscopri la grazia naturale che vive in te e libera l'energia vitale attraverso il movimento consapevole del corpo.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Danza Orientale Evolutiva dell'11 settembre" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni su Danza Orientale Evolutiva dell'11 settembre" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
@@ -986,9 +1538,29 @@
                     </a>
                 </div>
 
+                <div class="event-card special-event">
+                    <div class="event-header">
+                        <div class="event-date">22<br>Lun</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🪷 Lakshmi Workshop</h3>
+                            <div class="event-instructor">Dea della Bellezza, Ricchezza e Prosperità</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">17:30 - 19:30</span>
+                        <span class="meta-badge">45€</span>
+                    </div>
+                    <div class="event-description">
+                        Lakshmi, la Dea della Bellezza, della Ricchezza, della Fortuna e della Prosperità, ci guida nell'arte del lasciare andare, affinando le nostre scelte e aprendoci con fiducia alla vita. Con il cuore aperto impariamo ad attrarre ciò che è davvero allineato con la nostra anima. Lakshmi Mandala Vinyasa (pratica fluida di yoga per tutti), healthy break vegetale, mantra & chanting per invocare le qualità di Lakshmi, ed esercizi di self knowledge per esplorare il tuo potenziale più profondo.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sul Lakshmi Workshop del 22 settembre" class="book-button">
+                        Maggiori Info
+                    </a>
+                </div>
+
                 <div class="event-card">
                     <div class="event-header">
-                        <div class="event-date">24<br>Mar</div>
+                        <div class="event-date">24<br>Mer</div>
                         <div class="event-info">
                             <h3 class="event-title">🔥 Trance Dance</h3>
                             <div class="event-instructor">con Beatrice Reieri</div>
@@ -1001,14 +1573,14 @@
                     <div class="event-description">
                         Un rituale sciamanico per contribuire al fluire dell'energia interiore attraverso il movimento libero, la musica ritmica e la respirazione profonda. Beatrice Reieri ti accompagnerà in un viaggio di liberazione dove il corpo diventa il mezzo per accedere a stati di coscienza espansi e rilasciare blocchi energetici.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Trance Dance del 24 settembre" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni su Trance Dance del 24 settembre" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
                 <div class="event-card">
                     <div class="event-header">
-                        <div class="event-date">25<br>Mer</div>
+                        <div class="event-date">25<br>Gio</div>
                         <div class="event-info">
                             <h3 class="event-title">💃 Danza Orientale Evolutiva</h3>
                             <div class="event-instructor">con Lia Miro</div>
@@ -1021,14 +1593,14 @@
                     <div class="event-description">
                         Secondo appuntamento del mese con Lia Miro per continuare l'esplorazione della femminilità attraverso la danza. Un seminario di consapevolezza che unisce movimenti ancestrali e crescita personale, dove ogni gesto diventa un atto di riconnessione con la tua natura più autentica.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Danza Orientale Evolutiva del 25 settembre" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni su Danza Orientale Evolutiva del 25 settembre" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
                 <div class="event-card">
                     <div class="event-header">
-                        <div class="event-date">26<br>Gio</div>
+                        <div class="event-date">26<br>Ven</div>
                         <div class="event-info">
                             <h3 class="event-title">🌬️ Corso di Respirazione</h3>
                             <div class="event-instructor">con Andrea Bianchi</div>
@@ -1041,14 +1613,14 @@
                     <div class="event-description">
                         Un workshop intensivo dedicato esclusivamente alle tecniche di respirazione del Metodo Wim Hof. Andrea Bianchi ti guiderà attraverso esercizi specifici per imparare a padroneggiare il respiro come strumento di trasformazione. Scopri come questa pratica millenaria può diventare il tuo alleato per gestire stress, ansia e per accedere a stati di benessere profondo.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei info sul Corso di Respirazione del 26 settembre" class="book-button">
-                        📱 Info e Prenotazioni
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sul Corso di Respirazione del 26 settembre" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
                 <div class="event-card special-event">
                     <div class="event-header">
-                        <div class="event-date">28<br>Sab</div>
+                        <div class="event-date">28<br>Dom</div>
                         <div class="event-info">
                             <h3 class="event-title">🌳 Restituzione Albero Genealogico</h3>
                             <div class="event-instructor">con Giuseppina Tazzioli (Psicoterapeuta)</div>
@@ -1062,14 +1634,14 @@
                     <div class="event-description">
                         Un viaggio profondo nelle radici della tua storia familiare attraverso l'analisi dell'albero genealogico. La psicoterapeuta Giuseppina Tazzioli ti accompagnerà nella comprensione di come i pattern, i traumi e i doni dei tuoi antenati influenzano la tua vita presente. Attraverso questo strumento psicoterapeutico potrai identificare dinamiche inconsce, liberarti da pesi ereditati e riappropriarti della tua storia per scrivere un futuro più consapevole. Include incontro preliminare per la raccolta dati (2 ore) e restituzione di gruppo.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei info sulla Restituzione Albero Genealogico del 28 settembre" class="book-button">
-                        📱 Info e Prenotazioni
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sulla Restituzione Albero Genealogico del 28 settembre" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
                 <div class="event-card">
                     <div class="event-header">
-                        <div class="event-date">28<br>Sab</div>
+                        <div class="event-date">28<br>Dom</div>
                         <div class="event-info">
                             <h3 class="event-title">🔮 Cerchio di Tarocchi - Entrare nell'Autunno</h3>
                             <div class="event-instructor">con Fra Sonica</div>
@@ -1082,14 +1654,14 @@
                     <div class="event-description">
                         Un cerchio sacro con i Tarocchi di Marsiglia per attraversare consapevolmente la soglia dell'autunno. Fra Sonica ti guiderà nell'esplorazione del momento presente, aiutandoti a comprendere cosa lasciare andare e cosa accogliere in questa fase di transizione. Il periodo delle eclissi ci ha portato verso conclusioni karmiche importanti: scopri insieme agli altri partecipanti le risposte che cerchi attraverso la saggezza antica dei tarocchi.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare Cerchio di Tarocchi del 28 settembre" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sul Cerchio di Tarocchi del 28 settembre" class="book-button">
+                        Maggiori Info
                     </a>
                 </div>
 
                 <div class="event-card special-event">
                     <div class="event-header">
-                        <div class="event-date">30<br>Lun</div>
+                        <div class="event-date">30<br>Mar</div>
                         <div class="event-info">
                             <h3 class="event-title">🍽️ Cena Raccontata</h3>
                             <div class="event-instructor">con Franci e Chiara di Cibo Supersonico</div>
@@ -1102,8 +1674,185 @@
                     <div class="event-description">
                         Un'esperienza gastronomica unica dove creatività culinaria e natura si intrecciano in un racconto da gustare. Cibo Supersonico porta in tavola un viaggio sensoriale attraverso ingredienti vegetali d'eccellenza e storie di luoghi lontani. Supperclub in tavolata condivisa nella natura di Libra, con menu di 4 portate che sorprende, emoziona e racconta attraverso sapori sostenibili e creativi. Drink inclusi per un'esperienza completa.
                     </div>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare la Cena Raccontata del 30 settembre" class="book-button">
-                        📱 Prenota ora
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei maggiori informazioni sulla Cena Raccontata del 30 settembre" class="book-button">
+                        Maggiori Info
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Libra Experience Section -->
+        <section class="section" id="experience">
+            <div class="section-header">
+                <h2 class="section-title">Libra Experience</h2>
+                <p class="section-subtitle">Esperienze immersive di benessere e creatività</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card experience-card">
+                    <div class="event-header">
+                        <div class="event-date">3h</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🌸 Armonia</h3>
+                            <div class="event-instructor">Yoga in Natura & Plant-Based Brunch</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Durata: 3 ore</span>
+                        <span class="meta-badge">90€ per persona</span>
+                    </div>
+                    <div class="event-description">
+                        Risveglia corpo e mente con una sessione di yoga rigenerante immersi nel nostro spazio naturale. Lasciati guidare in un percorso di posture fluide e respiro consapevole, per poi concludere con un brunch gourmet plant-based che nutre l'anima e il corpo.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare l'esperienza Armonia - Yoga e Brunch" class="book-button">
+                        Prenota Esperienza
+                    </a>
+                </div>
+
+                <div class="event-card experience-card">
+                    <div class="event-header">
+                        <div class="event-date">3h</div>
+                        <div class="event-info">
+                            <h3 class="event-title">⚡ Energia</h3>
+                            <div class="event-instructor">Personal Training & Nutrition Break</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Durata: 3 ore</span>
+                        <span class="meta-badge">90€ per persona</span>
+                    </div>
+                    <div class="event-description">
+                        Allenamento personalizzato con il nostro trainer professionista che si adatta alle tue esigenze, seguito da una pausa nutriente con delizie plant-based studiate per massimizzare i benefici dell'attività fisica. Un'esperienza completa per chi desidera prendersi cura del proprio corpo con consapevolezza.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare l'esperienza Energia - Personal Training" class="book-button">
+                        Prenota Esperienza
+                    </a>
+                </div>
+
+                <div class="event-card experience-card">
+                    <div class="event-header">
+                        <div class="event-date">3h</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🎨 Espressione</h3>
+                            <div class="event-instructor">Atelier d'Arte & Plant-Based Brunch</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Durata: 3 ore</span>
+                        <span class="meta-badge">90€ per persona</span>
+                    </div>
+                    <div class="event-description">
+                        Libera la tua creatività in questo atelier esclusivo. Esplorerai tecniche pittoriche in un ambiente stimolante immerso nella natura, concludendo l'esperienza con un brunch gourmet plant-based che continuerà a nutrire la tua ispirazione.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare l'esperienza Espressione - Atelier d'Arte" class="book-button">
+                        Prenota Esperienza
+                    </a>
+                </div>
+
+                <div class="event-card experience-card">
+                    <div class="event-header">
+                        <div class="event-date">2h</div>
+                        <div class="event-info">
+                            <h3 class="event-title">🌿 Tradizione</h3>
+                            <div class="event-instructor">Cooking Class Toscana Vegetale & Brunch</div>
+                        </div>
+                    </div>
+                    <div class="event-meta">
+                        <span class="meta-badge">Durata: 2 ore</span>
+                        <span class="meta-badge">80€ per persona</span>
+                    </div>
+                    <div class="event-description">
+                        Scopri i segreti della cucina toscana reinterpretata in chiave vegetale. Un viaggio sensoriale tra tradizione e innovazione, dove insieme allo staff di Amasia imparerai a preparare piatti autentici con ingredienti locali e sostenibili, per poi concludere con un brunch gourmet.
+                    </div>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei prenotare l'esperienza Tradizione - Cooking Class" class="book-button">
+                        Prenota Esperienza
+                    </a>
+                </div>
+
+                <div class="event-card experience-card" style="grid-column: 1 / -1;">
+                    <div class="section-header" style="margin-bottom: 30px;">
+                        <h3 style="font-size: 1.8rem; color: #9A6E0E; margin-bottom: 15px;">Esperienze Personalizzate</h3>
+                        <p style="color: #4B5031; opacity: 0.9;">Crea la tua esperienza su misura combinando le nostre proposte</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                        <div style="padding: 25px; background: rgba(234, 228, 206, 0.2); border-radius: 8px;">
+                            <h4 style="color: #9A6E0E; margin-bottom: 10px;">🌺 Rinascita</h4>
+                            <p style="font-weight: 600; color: #4B5031; margin-bottom: 10px;">Yoga + Atelier d'Arte + Brunch</p>
+                            <p style="font-size: 14px; color: #4B5031; opacity: 0.8; margin-bottom: 15px;">Un viaggio completo che inizia con il risveglio del corpo attraverso lo yoga, prosegue con l'espressione artistica guidata dalla pittura, e si conclude con un brunch plant-based che delizia i sensi.</p>
+                            <div style="display: flex; gap: 15px;">
+                                <span class="meta-badge">4.5 ore</span>
+                                <span class="meta-badge">150€/persona</span>
+                            </div>
+                        </div>
+                        
+                        <div style="padding: 25px; background: rgba(234, 228, 206, 0.2); border-radius: 8px;">
+                            <h4 style="color: #9A6E0E; margin-bottom: 10px;">🎨 Creatività</h4>
+                            <p style="font-weight: 600; color: #4B5031; margin-bottom: 10px;">Pittura Creativa + Cooking Class + Brunch</p>
+                            <p style="font-size: 14px; color: #4B5031; opacity: 0.8; margin-bottom: 15px;">Partendo dall'arte attraverso la pittura in ambiente naturale, si passa ad un altro tipo di arte: la cucina. Dove l'ingrediente segreto è sempre la creatività, terminando con il nostro brunch plant-based.</p>
+                            <div style="display: flex; gap: 15px;">
+                                <span class="meta-badge">4.5 ore</span>
+                                <span class="meta-badge">150€/persona</span>
+                            </div>
+                        </div>
+                        
+                        <div style="padding: 25px; background: rgba(234, 228, 206, 0.2); border-radius: 8px;">
+                            <h4 style="color: #9A6E0E; margin-bottom: 10px;">💪 Salute</h4>
+                            <p style="font-weight: 600; color: #4B5031; margin-bottom: 10px;">Allenamento + Cooking Class + Brunch</p>
+                            <p style="font-size: 14px; color: #4B5031; opacity: 0.8; margin-bottom: 15px;">Una vera wellness experience tra allenamento fisico e cucina con ricette salutari pensate per chi ama il benessere a 360 gradi, per finire con il nostro brunch plant-based bilanciato.</p>
+                            <div style="display: flex; gap: 15px;">
+                                <span class="meta-badge">4.5 ore</span>
+                                <span class="meta-badge">150€/persona</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="https://wa.me/393491408666?text=Ciao! Vorrei creare un'esperienza personalizzata Libra Experience" class="book-button">
+                            Crea la Tua Esperienza
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servizi Privati Section -->
+        <section class="section" id="servizi-privati">
+            <div class="section-header">
+                <h2 class="section-title">I Nostri Servizi Privati</h2>
+                <p class="section-subtitle">Esperienze su misura per i tuoi momenti speciali</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">💍</span>
+                    <h3>Eventi Privati</h3>
+                    <div class="event-description">
+                        Trasforma i tuoi momenti più preziosi in ricordi indimenticabili. Matrimoni intimi immersi nella natura toscana, celebrazioni di compleanni che uniscono convivialità e benessere, mother blessing per onorare la sacralità della maternità. Ogni evento è curato nei minimi dettagli, creando un'atmosfera unica dove eleganza naturale e autenticità si fondono perfettamente nella cornice magica di Libra.
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🏢</span>
+                    <h3>Team Building</h3>
+                    <div class="event-description">
+                        Rivoluziona il concetto di formazione aziendale attraverso esperienze trasformative che uniscono crescita professionale e benessere personale. I nostri team building combinano pratiche di mindfulness, attività creative collaborative e momenti di condivisione autentica, il tutto immerso nella bellezza rigenerante della natura. Un approccio innovativo che rafforza i legami del gruppo e potenzia le performance lavorative.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-actions" style="text-align: center; margin-top: 40px;">
+                <div style="margin-bottom: 20px; font-size: 1.1rem; color: #4B5031;">
+                    Per preventivi personalizzati o maggiori informazioni:
+                </div>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:librapietrasanta@gmail.com?subject=Richiesta%20Preventivo%20Servizi%20Privati" 
+                       class="book-button" style="text-decoration: none;">
+                        Scrivici una Mail
+                    </a>
+                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei informazioni sui vostri servizi privati per eventi e team building" 
+                       class="book-button" style="text-decoration: none;">
+                        Contattaci su WhatsApp
                     </a>
                 </div>
             </div>
@@ -1206,6 +1955,57 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Floating Booking Button -->
+        <div class="booking-section">
+            <button class="booking-toggle" id="bookingToggleBtn">
+                Prenota Attività 
+            </button>
+        </div>
+
+        <!-- Booking Form Modal -->
+        <div class="booking-form-container" id="bookingFormContainer">
+            <form class="booking-form" id="bookingForm">
+                <button type="button" class="close-form" id="closeFormBtn">&times;</button>
+                
+                <div class="form-header">
+                    <h3>Prenota i Tuoi Eventi</h3>
+                    <p style="color: #4B5031; opacity: 0.8;">Seleziona uno o più eventi e compila i dati</p>
+                </div>
+
+                <div id="formMessage"></div>
+
+                <div class="form-group">
+                    <label for="user_name">Nome Completo *</label>
+                    <input type="text" id="user_name" name="user_name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_email">Email *</label>
+                    <input type="email" id="user_email" name="user_email" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_phone">Telefono *</label>
+                    <input type="tel" id="user_phone" name="user_phone" class="form-input" required>
+                </div>
+
+                <div class="events-selection" id="eventsSelection">
+                    <h4>Seleziona Eventi:</h4>
+                    <!-- Gli eventi verranno inseriti qui dinamicamente in ordine cronologico -->
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Note aggiuntive (opzionale)</label>
+                    <textarea id="message" name="message" class="form-input" rows="3" placeholder="Richieste particolari, allergie, ecc..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="form-btn secondary" id="cancelFormBtn">Annulla</button>
+                    <button type="submit" class="form-btn primary" id="submitBtn">Invia Prenotazione</button>
+                </div>
+            </form>
+        </div>
 
         <!-- Note Bar -->
         <div class="section">
@@ -1218,6 +2018,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
@@ -1239,8 +2040,270 @@
             }
         });
 
+        // Eventi ordinati cronologicamente
+        const eventsData = [
+            {
+                id: 'evt_funghi',
+                date: 3,
+                title: '🍄 Il Regno dei Funghi',
+                meta: '3 Settembre 18:00-19:30 • 30€ • con Vanessa Parducci',
+                value: 'Il Regno dei Funghi - 3 Settembre 18:00-19:30 (30€)'
+            },
+            {
+                id: 'evt_respiro',
+                date: 6,
+                title: '🌬️ Respira con Me',
+                meta: '6 Settembre 10:00-11:30 • 15€ • con Lisa Zini',
+                value: 'Respira con Me - 6 Settembre 10:00-11:30 (15€)'
+            },
+            {
+                id: 'evt_danza11',
+                date: 11,
+                title: '💃 Danza Orientale Evolutiva',
+                meta: '11 Settembre 18:00-20:00 • 20€ • con Lia Miro',
+                value: 'Danza Orientale Evolutiva - 11 Settembre 18:00-20:00 (20€)'
+            },
+            {
+                id: 'evt_wimhof',
+                date: 20,
+                title: '❄️ Wim Hof Method',
+                meta: '20 Settembre 9:30-15:30 • 99€ • con Andrea Bianchi',
+                value: 'Wim Hof Method - 20 Settembre 9:30-15:30 (99€)'
+            },
+            {
+                id: 'evt_lakshmi',
+                date: 22,
+                title: '🪷 Lakshmi Workshop',
+                meta: '22 Settembre 17:30-19:30 • 45€ • Dea della Prosperità',
+                value: 'Lakshmi Workshop - 22 Settembre 17:30-19:30 (45€)'
+            },
+            {
+                id: 'evt_trance',
+                date: 24,
+                title: '🔥 Trance Dance',
+                meta: '24 Settembre 19:30-22:00 • 20€ • con Beatrice Reieri',
+                value: 'Trance Dance - 24 Settembre 19:30-22:00 (20€)'
+            },
+            {
+                id: 'evt_danza25',
+                date: 25,
+                title: '💃 Danza Orientale Evolutiva',
+                meta: '25 Settembre 18:00-20:00 • 20€ • con Lia Miro',
+                value: 'Danza Orientale Evolutiva - 25 Settembre 18:00-20:00 (20€)'
+            },
+            {
+                id: 'evt_albero',
+                date: 28,
+                title: '🌳 Restituzione Albero Genealogico',
+                meta: '28 Settembre 10:00-17:00 • 280€ • con Giuseppina Tazzioli',
+                value: 'Restituzione Albero Genealogico - 28 Settembre 10:00-17:00 (280€)'
+            },
+            {
+                id: 'evt_tarocchi',
+                date: 28,
+                title: '🔮 Cerchio di Tarocchi',
+                meta: '28 Settembre 20:00-22:00 • 35€ • con Fra Sonica',
+                value: 'Cerchio di Tarocchi - 28 Settembre 20:00-22:00 (35€)'
+            },
+            {
+                id: 'evt_cena',
+                date: 30,
+                title: '🍽️ Cena Raccontata',
+                meta: '30 Settembre 20:00-23:00 • 95€ • con Cibo Supersonico',
+                value: 'Cena Raccontata - 30 Settembre 20:00-23:00 (95€)'
+            }
+        ];
+
+        // Eventi settimanali (non hanno data specifica)
+        const weeklyEvents = [
+            {
+                id: 'evt_ceramica',
+                title: '🏺 Corso di Ceramica',
+                meta: 'Ogni lunedì 18:30-21:00 • 40€ • con Linda Bianchi',
+                value: 'Corso di Ceramica - Lunedì 18:30-21:00 (40€)'
+            },
+            {
+                id: 'evt_pilates_8',
+                title: '🤸‍♀️ Pilates - Orario 8:30',
+                meta: 'Mercoledì 8:30-9:30 • 15€ • con Francesca Parrini',
+                value: 'Pilates 8:30-9:30 - Mercoledì (15€)'
+            },
+            {
+                id: 'evt_pilates_10',
+                title: '🤸‍♀️ Pilates - Orario 10:00',
+                meta: 'Mercoledì 10:00-11:00 • 15€ • con Francesca Parrini',
+                value: 'Pilates 10:00-11:00 - Mercoledì (15€)'
+            },
+            {
+                id: 'evt_pilates_13',
+                title: '🤸‍♀️ Pilates - Orario 13:00',
+                meta: 'Mercoledì 13:00-14:00 • 15€ • con Francesca Parrini',
+                value: 'Pilates 13:00-14:00 - Mercoledì (15€)'
+            },
+            {
+                id: 'evt_yin',
+                title: '🧘 Yin Yoga',
+                meta: 'Mercoledì 19:00-20:00 • 20€ • con Naty',
+                value: 'Yin Yoga - Mercoledì 19:00-20:00 (20€)'
+            }
+        ];
+
+        // Smooth scroll  
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Smooth animations on scroll
+            // Navigation scroll effect
+            window.addEventListener('scroll', function() {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // Parallax effect for hero
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent && scrolled < window.innerHeight) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    heroContent.style.opacity = 1 - (scrolled / window.innerHeight * 0.5);
+                }
+            });
+
+            // Initialize EmailJS
+            emailjs.init("3LZyp-vRsblaN_zcY");
+            
+            // Popola gli eventi nel form in ordine cronologico
+            function populateEventsInForm() {
+                const eventsSelection = document.getElementById('eventsSelection');
+                const eventsHTML = eventsSelection.querySelector('h4').outerHTML;
+                
+                // Aggiungi prima gli eventi mensili in ordine cronologico
+                let eventCheckboxes = '';
+                eventsData.forEach(event => {
+                    eventCheckboxes += `
+                        <div class="event-checkbox">
+                            <input type="checkbox" id="${event.id}" name="selected_events" value="${event.value}">
+                            <div class="event-info-small">
+                                <div class="event-title-small">${event.title}</div>
+                                <div class="event-meta-small">${event.meta}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Poi aggiungi gli eventi settimanali
+                eventCheckboxes += '<h4 style="margin-top: 20px; margin-bottom: 15px;">Eventi Settimanali:</h4>';
+                weeklyEvents.forEach(event => {
+                    eventCheckboxes += `
+                        <div class="event-checkbox">
+                            <input type="checkbox" id="${event.id}" name="selected_events" value="${event.value}">
+                            <div class="event-info-small">
+                                <div class="event-title-small">${event.title}</div>
+                                <div class="event-meta-small">${event.meta}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                eventsSelection.innerHTML = eventsHTML + eventCheckboxes;
+            }
+            
+            populateEventsInForm();
+            
+            // Booking form functions
+            function openBookingForm() {
+                document.getElementById('bookingFormContainer').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeBookingForm() {
+                document.getElementById('bookingFormContainer').classList.remove('active');
+                document.body.style.overflow = 'auto';
+                document.getElementById('formMessage').innerHTML = '';
+                document.getElementById('bookingForm').reset();
+            }
+
+            function showMessage(message, type) {
+                const messageDiv = document.getElementById('formMessage');
+                messageDiv.innerHTML = `<div class="form-message ${type}">${message}</div>`;
+            }
+
+            // Event listeners for booking form
+            document.getElementById('bookingToggleBtn').addEventListener('click', openBookingForm);
+            document.getElementById('closeFormBtn').addEventListener('click', closeBookingForm);
+            document.getElementById('cancelFormBtn').addEventListener('click', closeBookingForm);
+            
+            // Form submission handler
+            document.getElementById('bookingForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Invio in corso...';
+                submitBtn.disabled = true;
+                
+                // Get selected events
+                const selectedEvents = [];
+                const checkboxes = document.querySelectorAll('input[name="selected_events"]:checked');
+                checkboxes.forEach(checkbox => {
+                    selectedEvents.push(checkbox.value);
+                });
+                
+                if (selectedEvents.length === 0) {
+                    showMessage('Seleziona almeno un evento per continuare.', 'error');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                // Prepare template parameters
+                const templateParams = {
+                    user_name: document.getElementById('user_name').value,
+                    user_email: document.getElementById('user_email').value,
+                    user_phone: document.getElementById('user_phone').value,
+                    selected_events: selectedEvents.join('\n'),
+                    message: document.getElementById('message').value || 'Nessuna nota aggiuntiva',
+                    to_email: 'librapietrasanta@gmail.com',
+                    booking_date: new Date().toLocaleDateString('it-IT'),
+                    booking_time: new Date().toLocaleTimeString('it-IT')
+                };
+                
+                // Send email to Libra
+                emailjs.send('service_epmymzx', 'template_vdmqqm3', templateParams)
+                    .then(function(response) {
+                        // Send confirmation email to customer
+                        const confirmationParams = {
+                            ...templateParams,
+                            to_email: templateParams.user_email
+                        };
+                        
+                        return emailjs.send('service_epmymzx', 'template_fmudhsj', confirmationParams);
+                    })
+                    .then(function(response) {
+                        showMessage('Richiesta di prenotazione inviata con successo! Ti contatteremo a breve per confermare i dettagli.', 'success');
+                        setTimeout(() => {
+                            closeBookingForm();
+                        }, 2000);
+                    })
+                    .catch(function(error) {
+                        console.error('EmailJS error:', error);
+                        showMessage('Errore nell\'invio. Prova a contattarci via WhatsApp: +39 349 140 8666', 'error');
+                    })
+                    .finally(function() {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+            });
+
+            // Animate cards on scroll
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1255,7 +2318,6 @@
                 });
             }, observerOptions);
             
-            // Animate cards on scroll
             document.querySelectorAll('.event-card').forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
@@ -1294,6 +2356,29 @@
                 }
             });
         });
+
+        // Search function
+        function searchEvents(searchTerm) {
+            const events = document.querySelectorAll('.event-card');
+            const normalizedTerm = searchTerm.toLowerCase().trim();
+            
+            events.forEach(event => {
+                const title = event.querySelector('.event-title').textContent.toLowerCase();
+                const instructor = event.querySelector('.event-instructor').textContent.toLowerCase();
+                const description = event.querySelector('.event-description').textContent.toLowerCase();
+                
+                const isMatch = title.includes(normalizedTerm) || 
+                               instructor.includes(normalizedTerm) || 
+                               description.includes(normalizedTerm);
+                
+                if (isMatch || normalizedTerm === '') {
+                    event.style.display = 'block';
+                    event.style.opacity = '1';
+                } else {
+                    event.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
