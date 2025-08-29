@@ -866,6 +866,33 @@
             box-shadow: 0 4px 15px rgba(75, 80, 49, 0.1);
         }
 
+        /* Subsection Styles */
+        .subsection-container {
+            margin-top: 60px;
+        }
+
+        .subsection-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(154, 110, 14, 0.1);
+        }
+
+        .subsection-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 400;
+            color: #9A6E0E;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .subsection-subtitle {
+            font-size: 1.1rem;
+            color: #4B5031;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
         /* Services Grid */
         .services-grid {
             display: grid;
@@ -1006,6 +1033,134 @@
         #settimanali { scroll-margin-top: 80px; }
         #mensili { scroll-margin-top: 80px; }
         #experience { scroll-margin-top: 80px; }
+        /* WhatsApp Floating Button - Enhanced CSS */
+        .whatsapp-float {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 99999 !important;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            text-align: center;
+            margin: 60px 0;
+            opacity: 0.3;
+        }
+
+        .section-divider svg {
+            width: 60px;
+            height: 30px;
+            fill: #9A6E0E;
+        }
+
+        /* Footer Enhanced */
+        .footer {
+            background: #4B5031;
+            color: #EAE4CE;
+            padding: 80px 30px 30px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            color: #D3BA8F;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #EAE4CE;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: #D3BA8F;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(234, 228, 206, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: #9A6E0E;
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: #EAE4CE;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(234, 228, 206, 0.2);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
         /* Booking Form */
         .booking-section {
             position: fixed;
@@ -1282,8 +1437,7 @@
                     <a href="#welcome" class="nav-link">Chi Siamo</a>
                     <a href="#settimanali" class="nav-link">Eventi Settimanali</a>
                     <a href="#mensili" class="nav-link">Eventi Mensili</a>
-                    <a href="#experience" class="nav-link">Libra Experience</a>
-                    <a href="#servizi-privati" class="nav-link">Servizi Privati</a>
+                    <a href="#eventi-esclusivi" class="nav-link">Eventi Esclusivi</a>
                     <a href="#mappa" class="nav-link">Contatti</a>
                 </div>
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -1296,8 +1450,7 @@
             <a href="#welcome" onclick="closeMobileMenu()">Chi Siamo</a>
             <a href="#settimanali" onclick="closeMobileMenu()">Eventi Settimanali</a>
             <a href="#mensili" onclick="closeMobileMenu()">Eventi Mensili</a>
-            <a href="#experience" onclick="closeMobileMenu()">Libra Experience</a>
-            <a href="#servizi-privati" onclick="closeMobileMenu()">Servizi Privati</a>
+            <a href="#eventi-esclusivi" onclick="closeMobileMenu()">Eventi Esclusivi</a>
             <a href="#mappa" onclick="closeMobileMenu()">Contatti</a>
         </div>
 
@@ -1447,6 +1600,15 @@
                 </div>
             </div>
         </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 100 30">
+                <path d="M10,15 Q25,5 40,15 T70,15 T100,15" stroke="#9A6E0E" stroke-width="1" fill="none" opacity="0.5"/>
+                <circle cx="50" cy="15" r="3" fill="#9A6E0E"/>
+                <path d="M0,15 Q15,25 30,15 T60,15 T90,15" stroke="#9A6E0E" stroke-width="0.5" fill="none" opacity="0.3"/>
+            </svg>
+        </div>
 
         <!-- Eventi del Mese -->
         <section class="section" id="mensili">
@@ -1681,12 +1843,19 @@
             </div>
         </section>
 
-        <!-- Libra Experience Section -->
-        <section class="section" id="experience">
+        <!-- Eventi Esclusivi Section -->
+        <section class="section" id="eventi-esclusivi">
             <div class="section-header">
-                <h2 class="section-title">Libra Experience</h2>
-                <p class="section-subtitle">Esperienze immersive di benessere e creatività</p>
+                <h2 class="section-title">Eventi Esclusivi</h2>
+                <p class="section-subtitle">Esperienze uniche create per nutrire corpo, mente e spirito</p>
             </div>
+
+            <!-- Libra Experience Subsection -->
+            <div class="subsection-container">
+                <div class="subsection-header">
+                    <h3 class="subsection-title">Libra Experience - Percorsi di Benessere</h3>
+                    <p class="subsection-subtitle">Esperienze immersive prenotabili con almeno 48 ore di anticipo</p>
+                </div>
             
             <div class="events-grid">
                 <div class="event-card experience-card">
@@ -1699,7 +1868,8 @@
                     </div>
                     <div class="event-meta">
                         <span class="meta-badge">Durata: 3 ore</span>
-                        <span class="meta-badge">90€ per persona</span>
+                        <span class="meta-badge">A partire da 90€ per persona</span>
+                        <span class="meta-badge">Pacchetti gruppo disponibili</span>
                     </div>
                     <div class="event-description">
                         Risveglia corpo e mente con una sessione di yoga rigenerante immersi nel nostro spazio naturale. Lasciati guidare in un percorso di posture fluide e respiro consapevole, per poi concludere con un brunch gourmet plant-based che nutre l'anima e il corpo.
@@ -1759,7 +1929,8 @@
                     </div>
                     <div class="event-meta">
                         <span class="meta-badge">Durata: 2 ore</span>
-                        <span class="meta-badge">80€ per persona</span>
+                        <span class="meta-badge">A partire da 80€ per persona</span>
+                        <span class="meta-badge">Pacchetti gruppo disponibili</span>
                     </div>
                     <div class="event-description">
                         Scopri i segreti della cucina toscana reinterpretata in chiave vegetale. Un viaggio sensoriale tra tradizione e innovazione, dove insieme allo staff di Amasia imparerai a preparare piatti autentici con ingredienti locali e sostenibili, per poi concludere con un brunch gourmet.
@@ -1782,7 +1953,7 @@
                             <p style="font-size: 14px; color: #4B5031; opacity: 0.8; margin-bottom: 15px;">Un viaggio completo che inizia con il risveglio del corpo attraverso lo yoga, prosegue con l'espressione artistica guidata dalla pittura, e si conclude con un brunch plant-based che delizia i sensi.</p>
                             <div style="display: flex; gap: 15px;">
                                 <span class="meta-badge">4.5 ore</span>
-                                <span class="meta-badge">150€/persona</span>
+                                <span class="meta-badge">A partire da 150€/persona</span>
                             </div>
                         </div>
                         
@@ -1792,7 +1963,7 @@
                             <p style="font-size: 14px; color: #4B5031; opacity: 0.8; margin-bottom: 15px;">Partendo dall'arte attraverso la pittura in ambiente naturale, si passa ad un altro tipo di arte: la cucina. Dove l'ingrediente segreto è sempre la creatività, terminando con il nostro brunch plant-based.</p>
                             <div style="display: flex; gap: 15px;">
                                 <span class="meta-badge">4.5 ore</span>
-                                <span class="meta-badge">150€/persona</span>
+                                <span class="meta-badge">A partire da 150€/persona</span>
                             </div>
                         </div>
                         
@@ -1802,58 +1973,62 @@
                             <p style="font-size: 14px; color: #4B5031; opacity: 0.8; margin-bottom: 15px;">Una vera wellness experience tra allenamento fisico e cucina con ricette salutari pensate per chi ama il benessere a 360 gradi, per finire con il nostro brunch plant-based bilanciato.</p>
                             <div style="display: flex; gap: 15px;">
                                 <span class="meta-badge">4.5 ore</span>
-                                <span class="meta-badge">150€/persona</span>
+                                <span class="meta-badge">A partire da 150€/persona</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div style="text-align: center; margin-top: 30px;">
-                        <a href="https://wa.me/393491408666?text=Ciao! Vorrei creare un'esperienza personalizzata Libra Experience" class="book-button">
-                            Crea la Tua Esperienza
+                    <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(154, 110, 14, 0.05); border-radius: 15px;">
+                        <p style="font-size: 1.2rem; color: #9A6E0E; margin-bottom: 20px; font-weight: 600;">
+                            ✨ Pacchetti gruppo disponibili per tutte le Experience
+                        </p>
+                        <p style="color: #4B5031; margin-bottom: 25px;">
+                            Prezzi speciali per gruppi da 4 persone in su. Possibilità di personalizzare ogni esperienza secondo le vostre esigenze.
+                        </p>
+                        <a href="https://wa.me/393491408666?text=Ciao! Vorrei informazioni sui pacchetti gruppo per le Libra Experience" class="book-button">
+                            Richiedi Pacchetto Gruppo
                         </a>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Servizi Privati Section -->
-        <section class="section" id="servizi-privati">
-            <div class="section-header">
-                <h2 class="section-title">I Nostri Servizi Privati</h2>
-                <p class="section-subtitle">Esperienze su misura per i tuoi momenti speciali</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <span class="service-icon">💍</span>
-                    <h3>Eventi Privati</h3>
-                    <div class="event-description">
-                        Trasforma i tuoi momenti più preziosi in ricordi indimenticabili. Matrimoni intimi immersi nella natura toscana, celebrazioni di compleanni che uniscono convivialità e benessere, mother blessing per onorare la sacralità della maternità. Ogni evento è curato nei minimi dettagli, creando un'atmosfera unica dove eleganza naturale e autenticità si fondono perfettamente nella cornice magica di Libra.
+            <!-- Eventi Su Misura Subsection -->
+            <div class="subsection-container" style="margin-top: 80px;">
+                <div class="subsection-header">
+                    <h3 class="subsection-title">Eventi Su Misura - Celebrazioni & Team Building</h3>
+                    <p class="subsection-subtitle">Creiamo esperienze personalizzate per i tuoi momenti più importanti</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Eventi Privati</h3>
+                        <div class="event-description">
+                            Trasforma i tuoi momenti più preziosi in ricordi indimenticabili. Matrimoni intimi immersi nella natura toscana, celebrazioni di compleanni che uniscono convivialità e benessere, mother blessing per onorare la sacralità della maternità. Ogni evento è curato nei minimi dettagli, creando un'atmosfera unica dove eleganza naturale e autenticità si fondono perfettamente nella cornice magica di Libra.
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>Team Building Aziendale</h3>
+                        <div class="event-description">
+                            Rivoluziona il concetto di formazione aziendale attraverso esperienze trasformative che uniscono crescita professionale e benessere personale. I nostri team building combinano pratiche di mindfulness, attività creative collaborative e momenti di condivisione autentica, il tutto immerso nella bellezza rigenerante della natura. Un approccio innovativo che rafforza i legami del gruppo e potenzia le performance lavorative.
+                        </div>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <span class="service-icon">🏢</span>
-                    <h3>Team Building</h3>
-                    <div class="event-description">
-                        Rivoluziona il concetto di formazione aziendale attraverso esperienze trasformative che uniscono crescita professionale e benessere personale. I nostri team building combinano pratiche di mindfulness, attività creative collaborative e momenti di condivisione autentica, il tutto immerso nella bellezza rigenerante della natura. Un approccio innovativo che rafforza i legami del gruppo e potenzia le performance lavorative.
+                <div class="service-actions" style="text-align: center; margin-top: 40px;">
+                    <div style="margin-bottom: 20px; font-size: 1.1rem; color: #4B5031;">
+                        Per preventivi personalizzati o maggiori informazioni sui nostri eventi su misura:
                     </div>
-                </div>
-            </div>
-            
-            <div class="service-actions" style="text-align: center; margin-top: 40px;">
-                <div style="margin-bottom: 20px; font-size: 1.1rem; color: #4B5031;">
-                    Per preventivi personalizzati o maggiori informazioni:
-                </div>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:librapietrasanta@gmail.com?subject=Richiesta%20Preventivo%20Servizi%20Privati" 
-                       class="book-button" style="text-decoration: none;">
-                        Scrivici una Mail
-                    </a>
-                    <a href="https://wa.me/393491408666?text=Ciao! Vorrei informazioni sui vostri servizi privati per eventi e team building" 
-                       class="book-button" style="text-decoration: none;">
-                        Contattaci su WhatsApp
-                    </a>
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <a href="mailto:librapietrasanta@gmail.com?subject=Richiesta%20Preventivo%20Eventi%20Su%20Misura" 
+                           class="book-button" style="text-decoration: none;">
+                            Scrivici una Mail
+                        </a>
+                        <a href="https://wa.me/393491408666?text=Ciao! Vorrei informazioni sui vostri eventi su misura personalizzati" 
+                           class="book-button" style="text-decoration: none;">
+                            Contattaci su WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2014,9 +2189,94 @@
                 <div class="event-description">
                     Il nostro bar è aperto dalle 18:00 alle 23:30 per accompagnare le vostre serate con bevande naturali e snack vegetali.
                 </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>Navigazione</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#welcome">Chi Siamo</a></li>
+                            <li><a href="#settimanali">Eventi Settimanali</a></li>
+                            <li><a href="#mensili">Eventi Mensili</a></li>
+                            <li><a href="#eventi-esclusivi">Eventi Esclusivi</a></li>
+                            <li><a href="#calendario">Calendario</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Contatti</h3>
+                        <p style="color: #EAE4CE; line-height: 1.8;">
+                            Via Santa Maria 33<br>
+                            Pietrasanta, Lucca<br>
+                            <a href="tel:+393491408666">+39 349 140 8666</a><br>
+                            <a href="mailto:librapietrasanta@gmail.com">librapietrasanta@gmail.com</a>
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/librapietrasanta" target="_blank" class="social-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/393491408666" target="_blank" class="social-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.539c-.103.348.257.691.605.588l4.715-1.394A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.642-.5-5.168-1.361l-3.638 1.075 1.091-3.56A9.962 9.962 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                                </svg>
+                            </a>
+                            <a href="mailto:librapietrasanta@gmail.com" class="social-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Orari</h3>
+                        <p style="color: #EAE4CE; line-height: 1.8;">
+                            <strong>Eventi su prenotazione</strong><br>
+                            Lunedì - Sabato<br>
+                            <br>
+                            Prenotazione obbligatoria<br>
+                            con 48 ore di anticipo
+                        </p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Resta Aggiornato</h3>
+                        <p style="color: #EAE4CE; margin-bottom: 20px;">
+                            Unisciti al nostro canale Telegram per ricevere aggiornamenti settimanali sugli eventi
+                        </p>
+                        <a href="https://t.me/+ZI55kD1rIlM0MTBk" 
+                           target="_blank"
+                           class="book-button" style="background: #0088cc; padding: 12px 25px; font-size: 14px; display: inline-flex; align-items: center; gap: 10px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.68c.223-.198-.054-.308-.346-.111l-6.4 4.02-2.76-.918c-.6-.187-.612-.6.125-.89l10.782-4.156c.5-.18.94.12.78.88z"/>
+                            </svg>
+                            Unisciti al Canale
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Libra Terra Creativa. Tutti i diritti riservati. | Via Santa Maria 33, Pietrasanta</p>
+                </div>
             </div>
-        </div>
+        </footer>
     </div>
+
+    <!-- WhatsApp Floating Button - Outside main container -->
+    <a href="https://wa.me/393491408666?text=Ciao! Ho una domanda su Libra Terra Creativa" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Contattaci su WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.539c-.103.348.257.691.605.588l4.715-1.394A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.642-.5-5.168-1.361l-3.638 1.075 1.091-3.56A9.962 9.962 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+        </svg>
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
